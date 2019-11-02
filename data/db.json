@@ -1,16 +1,16 @@
 {
   "categories": [
     {
-      "name": "Podcasts",
-      "discription": "List of favorite Podcasts",
-      "display_name": "My favorite Podcasts",
-      "id": 3
+      "name": "Movies",
+      "discription": "List of favorite movies",
+      "display_name": "My favorite of all time movies",
+      "id": 8
     }
   ],
   "products": [
     {
       "category": "Podcasts",
-      "name": "Style your mind",
+      "name": "Style your minddddd",
       "display name": "Style your mind",
       "description": "Podcast",
       "id": 1
