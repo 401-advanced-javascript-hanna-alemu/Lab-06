@@ -1,18 +1,6 @@
 {
   "categories": [
     {
-      "name": "movies",
-      "discription": "List of movies",
-      "display_name": "Movies",
-      "id": 1
-    },
-    {
-      "name": "Playlist",
-      "discription": "List of songs",
-      "display_name": "My playlist",
-      "id": 2
-    },
-    {
       "name": "Podcasts",
       "discription": "List of favorite Podcasts",
       "display_name": "My favorite Podcasts",
@@ -47,6 +35,14 @@
       "display name": "Deuces-Chris Brown",
       "description": "Song",
       "id": 4
+    },
+    {
+      "_id": "10",
+      "name": "testing",
+      "display_name": "workingtest",
+      "description": "testtsttstesttest",
+      "category": "workstest",
+      "id": 6
     }
   ]
 }
