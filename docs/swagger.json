@@ -1,88 +1,292 @@
 {
-    "openapi": "3.0.1",
-    "info": {
-      "title": "Core API",
-      "description": "The worlds funnest little API",
-      "version": "1.0.0"
-    },
-    "servers": [
-      {
-        "url": "http://localhost:3000/"
-      }
-    ],
-    "paths": {
-      "/categories": {
-        "get": {
-          "description": "Get all categories",
-          "responses": {
-            "200": {
-              "description": "Returned a list of categories",
-              "content": {
-                "*/*": {
-                  "schema": {
-                    "$ref": "#/components/schemas/getAll"
+  "openapi" : "3.0.1",
+  "info" : {
+    "title" : "simple-api",
+    "description" : "categories and products",
+    "version" : "0.2"
+  },
+  "servers" : [ {
+    "url" : "http://localhost:3000"
+  } ],
+  "paths" : {
+    "/categories" : {
+      "get" : {
+        "description" : "Get existing categories",
+        "responses" : {
+          "200" : {
+            "description" : "Fetched existing categories",
+            "content" : {
+              "application/json; charset=utf-8" : {
+                "schema" : {
+                  "type" : "string"
+                },
+                "examples" : { }
+              }
+            }
+          }
+        },
+        "servers" : [ {
+          "url" : "http://localhost:3000"
+        } ]
+      },
+      "post" : {
+        "description" : "Add a new category",
+        "requestBody" : {
+          "content" : {
+            "application/json" : {
+              "schema" : {
+                "type" : "object",
+                "properties" : {
+                  "name" : {
+                    "type" : "string"
+                  },
+                  "description" : {
+                    "type" : "string"
+                  },
+                  "display_name" : {
+                    "type" : "string"
                   }
+                }
+              },
+              "examples" : {
+                "0" : {
+                  "value" : ""
                 }
               }
             }
           }
         },
-        "post": {
-          "description": "Create a new categories"
-        }
+        "responses" : {
+          "201" : {
+            "description" : "Category successfully created",
+            "content" : {
+              "application/json; charset=utf-8" : {
+                "schema" : {
+                  "type" : "string"
+                },
+                "examples" : { }
+              }
+            }
+          }
+        },
+        "servers" : [ {
+          "url" : "http://localhost:3000"
+        } ]
       },
-      "/products": {
-        "get": {
-          "description": "Get all products",
-          "responses": {
-            "200": {
-              "description": "Returned a list of products",
-              "content": {
-                "*/*": {
-                  "schema": {
-                    "$ref": "#/components/schemas/getAll"
+      "servers" : [ {
+        "url" : "http://localhost:3000"
+      } ]
+    },
+    "/products" : {
+      "get" : {
+        "description" : "Get existing products",
+        "responses" : {
+          "200" : {
+            "description" : "Fetch existing products successful",
+            "content" : {
+              "application/json; charset=utf-8" : {
+                "schema" : {
+                  "type" : "string"
+                },
+                "examples" : { }
+              }
+            }
+          }
+        },
+        "servers" : [ {
+          "url" : "http://localhost:3000"
+        } ]
+      },
+      "post" : {
+        "description" : "Create product",
+        "requestBody" : {
+          "content" : {
+            "application/json" : {
+              "schema" : {
+                "type" : "object",
+                "properties" : {
+                  "name" : {
+                    "type" : "string"
+                  },
+                  "description" : {
+                    "type" : "string"
+                  },
+                  "category" : {
+                    "type" : "string"
+                  },
+                  "display_name" : {
+                    "type" : "string"
                   }
+                }
+              },
+              "examples" : {
+                "0" : {
+                  "value" : ""
                 }
               }
             }
           }
         },
-        "post": {
-          "description": "Create a new product"
-        }
-      },
-      "/categories/{id}": {
-        "get": {
-          "description": "Get a category by id"
-        },
-        "put": {
-          "description": "Update a category by id"
-        },
-        "delete": {
-          "description": "Delete a category by id"
-        }
-      },
-      "/products/{id}": {
-        "put": {
-          "description": "Update a product by id"
-        },
-        "delete": {
-          "description": "Delete a product by id"
-        }
-      }
-    },
-    "components": {
-      "schemas": {
-        "getAll": {
-          "type": "object",
-          "example": {
-            "count": 2,
-            "results": [
-              "{}",
-              "{}"
-            ]
+        "responses" : {
+          "201" : {
+            "description" : "Product successfully created",
+            "content" : {
+              "application/json; charset=utf-8" : {
+                "schema" : {
+                  "type" : "string"
+                },
+                "examples" : { }
+              }
+            }
           }
-        }
-      }
+        },
+        "servers" : [ {
+          "url" : "http://localhost:3000"
+        } ]
+      },
+      "servers" : [ {
+        "url" : "http://localhost:3000"
+      } ]
+    },
+    "/categories/id" : {
+      "put" : {
+        "description" : "Update a category by id",
+        "requestBody" : {
+          "content" : {
+            "application/json" : {
+              "schema" : {
+                "type" : "object",
+                "properties" : {
+                  "name" : {
+                    "type" : "string"
+                  },
+                  "description" : {
+                    "type" : "string"
+                  },
+                  "display_name" : {
+                    "type" : "string"
+                  }
+                }
+              },
+              "examples" : {
+                "0" : {
+                  "value" : ""
+                }
+              }
+            }
+          }
+        },
+        "responses" : {
+          "200" : {
+            "description" : "Category successfully updated",
+            "content" : {
+              "application/json; charset=utf-8" : {
+                "schema" : {
+                  "type" : "string"
+                },
+                "examples" : { }
+              }
+            }
+          }
+        },
+        "servers" : [ {
+          "url" : "http://localhost:3000"
+        } ]
+      },
+      "delete" : {
+        "description" : "Delete an existing category by id",
+        "responses" : {
+          "200" : {
+            "description" : "Category successfully deleted",
+            "content" : {
+              "application/json; charset=utf-8" : {
+                "schema" : {
+                  "type" : "string"
+                },
+                "examples" : { }
+              }
+            }
+          }
+        },
+        "servers" : [ {
+          "url" : "http://localhost:3000"
+        } ]
+      },
+      "servers" : [ {
+        "url" : "http://localhost:3000"
+      } ]
+    },
+    "/products/id" : {
+      "put" : {
+        "description" : "Update a product by id",
+        "requestBody" : {
+          "content" : {
+            "application/json" : {
+              "schema" : {
+                "type" : "object",
+                "properties" : {
+                  "name" : {
+                    "type" : "string"
+                  },
+                  "description" : {
+                    "type" : "string"
+                  },
+                  "category" : {
+                    "type" : "string"
+                  },
+                  "display_name" : {
+                    "type" : "string"
+                  }
+                }
+              },
+              "examples" : {
+                "0" : {
+                  "value" : ""
+                }
+              }
+            }
+          }
+        },
+        "responses" : {
+          "200" : {
+            "description" : "Product successfully updated",
+            "content" : {
+              "application/json; charset=utf-8" : {
+                "schema" : {
+                  "type" : "string"
+                },
+                "examples" : { }
+              }
+            }
+          }
+        },
+        "servers" : [ {
+          "url" : "http://localhost:3000"
+        } ]
+      },
+      "delete" : {
+        "description" : "Delete product by id",
+        "responses" : {
+          "200" : {
+            "description" : "Product successfully deleted",
+            "content" : {
+              "application/json; charset=utf-8" : {
+                "schema" : {
+                  "type" : "string"
+                },
+                "examples" : { }
+              }
+            }
+          }
+        },
+        "servers" : [ {
+          "url" : "http://localhost:3000"
+        } ]
+      },
+      "servers" : [ {
+        "url" : "http://localhost:3000"
+      } ]
     }
-  }
+  },
+  "swagger": "2.0"
+}

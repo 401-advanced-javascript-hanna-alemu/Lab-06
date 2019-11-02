@@ -1,34 +1,20 @@
-LAB - Lab 06
+# LAB - Lab 06
 
-Project Name
+## Project Name
 
-Simple API
+### Simple API
 
-Author: Student/Group Name
+## Author: Student/Group Name
 
-Hanna ALemu
+### Hanna ALemu
 
+## Setup 
 
-Links and Resources
+Install json-server globally
 
-back-end (when applicable)
-front-end (when applicable)
-Documentation
-api docs (API servers) : https://editor.swagger.io/?_ga=2.4829872.223355415.1566258485-857676338.1566258485
+`run json-server --watch db.json` from within the data folder to simulate a RESTful Api using JSON server!.
 
-Modules
-json-server
+## Documentation
 
-Usage Notes or examples
-
-Setup
-.env requirements
-
-PORT - 3000
-
-Running the app
-npm start
-json-server --watch ./data/db.json
-
-Returns a JSON object with the categories and products objects in an array
+### Swagger: https://app.swaggerhub.com/apis/HannaAlemu7/simple-api-resubmition/0.1#free
 
