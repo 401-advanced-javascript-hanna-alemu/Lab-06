@@ -1,20 +1,20 @@
 {
   "openapi" : "3.0.1",
   "info" : {
-    "title" : "defaultTitle",
-    "description" : "defaultDescription",
-    "version" : "0.1"
+    "title" : "simple-api",
+    "description" : "categories and products",
+    "version" : "0.2"
   },
   "servers" : [ {
     "url" : "http://localhost:3000"
   } ],
   "paths" : {
-    "/categories/3" : {
-      "delete" : {
-        "description" : "Auto generated using Swagger Inspector",
+    "/categories" : {
+      "get" : {
+        "description" : "Get existing categories",
         "responses" : {
           "200" : {
-            "description" : "Auto generated using Swagger Inspector",
+            "description" : "Fetched existing categories",
             "content" : {
               "application/json; charset=utf-8" : {
                 "schema" : {
@@ -29,92 +29,36 @@
           "url" : "http://localhost:3000"
         } ]
       },
-      "servers" : [ {
-        "url" : "http://localhost:3000"
-      } ]
-    },
-    "/products/110" : {
-      "delete" : {
-        "description" : "Auto generated using Swagger Inspector",
-        "responses" : {
-          "200" : {
-            "description" : "Auto generated using Swagger Inspector",
-            "content" : {
-              "application/json; charset=utf-8" : {
-                "schema" : {
-                  "type" : "string"
-                },
-                "examples" : { }
-              }
-            }
-          }
-        },
-        "servers" : [ {
-          "url" : "http://localhost:3000"
-        } ]
-      },
-      "servers" : [ {
-        "url" : "http://localhost:3000"
-      } ]
-    },
-    "/categories/8" : {
-      "put" : {
-        "description" : "Auto generated using Swagger Inspector",
+      "post" : {
+        "description" : "Add a new category",
         "requestBody" : {
           "content" : {
             "application/json" : {
               "schema" : {
-                "$ref" : "#/components/schemas/body"
+                "type" : "object",
+                "properties" : {
+                  "name" : {
+                    "type" : "string"
+                  },
+                  "description" : {
+                    "type" : "string"
+                  },
+                  "display_name" : {
+                    "type" : "string"
+                  }
+                }
               },
               "examples" : {
                 "0" : {
-                  "value" : "{\r\n      \"name\": \"Movies\",\r\n      \"discription\": \"List of favorite movies\",\r\n      \"display_name\": \"My favorite of all time movies\",\r\n      \"id\": 8\r\n    }"
+                  "value" : ""
                 }
               }
             }
           }
         },
         "responses" : {
-          "200" : {
-            "description" : "Auto generated using Swagger Inspector",
-            "content" : {
-              "application/json; charset=utf-8" : {
-                "schema" : {
-                  "type" : "string"
-                },
-                "examples" : { }
-              }
-            }
-          }
-        },
-        "servers" : [ {
-          "url" : "http://localhost:3000"
-        } ]
-      },
-      "servers" : [ {
-        "url" : "http://localhost:3000"
-      } ]
-    },
-    "/products/1" : {
-      "put" : {
-        "description" : "Auto generated using Swagger Inspector",
-        "requestBody" : {
-          "content" : {
-            "application/json" : {
-              "schema" : {
-                "$ref" : "#/components/schemas/body_1"
-              },
-              "examples" : {
-                "0" : {
-                  "value" : "{\r\n      \"category\": \"Podcasts\",\r\n      \"name\": \"Style your minddddd\",\r\n      \"display name\": \"Style your mind\",\r\n      \"description\": \"Podcast\",\r\n      \"id\": 1\r\n    }"
-                }
-              }
-            }
-          }
-        },
-        "responses" : {
-          "200" : {
-            "description" : "Auto generated using Swagger Inspector",
+          "201" : {
+            "description" : "Category successfully created",
             "content" : {
               "application/json; charset=utf-8" : {
                 "schema" : {
@@ -135,10 +79,10 @@
     },
     "/products" : {
       "get" : {
-        "description" : "Auto generated using Swagger Inspector",
+        "description" : "Get existing products",
         "responses" : {
           "200" : {
-            "description" : "Auto generated using Swagger Inspector",
+            "description" : "Fetch existing products successful",
             "content" : {
               "application/json; charset=utf-8" : {
                 "schema" : {
@@ -154,19 +98,30 @@
         } ]
       },
       "post" : {
-        "description" : "Auto generated using Swagger Inspector",
+        "description" : "Create product",
         "requestBody" : {
           "content" : {
             "application/json" : {
               "schema" : {
-                "$ref" : "#/components/schemas/body_2"
+                "type" : "object",
+                "properties" : {
+                  "name" : {
+                    "type" : "string"
+                  },
+                  "description" : {
+                    "type" : "string"
+                  },
+                  "category" : {
+                    "type" : "string"
+                  },
+                  "display_name" : {
+                    "type" : "string"
+                  }
+                }
               },
               "examples" : {
                 "0" : {
-                  "value" : "{\r\n      \"category\": \"Movies\",\r\n      \"name\": \"Iron Man\",\r\n      \"display name\": \"Iron Man\",\r\n      \"description\": \"Movie\",\r\n      \"id\": 110\r\n    },"
-                },
-                "1" : {
-                  "value" : "{\r\n      \"category\": \"Movies\",\r\n      \"name\": \"Iron Man\",\r\n      \"display name\": \"Iron Man\",\r\n      \"description\": \"Movie\",\r\n      \"id\": 110\r\n    }"
+                  "value" : ""
                 }
               }
             }
@@ -174,20 +129,9 @@
         },
         "responses" : {
           "201" : {
-            "description" : "Auto generated using Swagger Inspector",
+            "description" : "Product successfully created",
             "content" : {
               "application/json; charset=utf-8" : {
-                "schema" : {
-                  "type" : "string"
-                },
-                "examples" : { }
-              }
-            }
-          },
-          "400" : {
-            "description" : "Auto generated using Swagger Inspector",
-            "content" : {
-              "text/html; charset=utf-8" : {
                 "schema" : {
                   "type" : "string"
                 },
@@ -204,12 +148,37 @@
         "url" : "http://localhost:3000"
       } ]
     },
-    "/categories" : {
-      "get" : {
-        "description" : "Auto generated using Swagger Inspector",
+    "/categories/id" : {
+      "put" : {
+        "description" : "Update a category by id",
+        "requestBody" : {
+          "content" : {
+            "application/json" : {
+              "schema" : {
+                "type" : "object",
+                "properties" : {
+                  "name" : {
+                    "type" : "string"
+                  },
+                  "description" : {
+                    "type" : "string"
+                  },
+                  "display_name" : {
+                    "type" : "string"
+                  }
+                }
+              },
+              "examples" : {
+                "0" : {
+                  "value" : ""
+                }
+              }
+            }
+          }
+        },
         "responses" : {
           "200" : {
-            "description" : "Auto generated using Swagger Inspector",
+            "description" : "Category successfully updated",
             "content" : {
               "application/json; charset=utf-8" : {
                 "schema" : {
@@ -224,25 +193,82 @@
           "url" : "http://localhost:3000"
         } ]
       },
-      "post" : {
-        "description" : "Auto generated using Swagger Inspector",
+      "delete" : {
+        "description" : "Delete an existing category by id",
+        "responses" : {
+          "200" : {
+            "description" : "Category successfully deleted",
+            "content" : {
+              "application/json; charset=utf-8" : {
+                "schema" : {
+                  "type" : "string"
+                },
+                "examples" : { }
+              }
+            }
+          }
+        },
+        "servers" : [ {
+          "url" : "http://localhost:3000"
+        } ]
+      },
+      "servers" : [ {
+        "url" : "http://localhost:3000"
+      } ]
+    },
+    "/products/id" : {
+      "put" : {
+        "description" : "Update a product by id",
         "requestBody" : {
           "content" : {
             "application/json" : {
               "schema" : {
-                "$ref" : "#/components/schemas/body_3"
+                "type" : "object",
+                "properties" : {
+                  "name" : {
+                    "type" : "string"
+                  },
+                  "description" : {
+                    "type" : "string"
+                  },
+                  "category" : {
+                    "type" : "string"
+                  },
+                  "display_name" : {
+                    "type" : "string"
+                  }
+                }
               },
               "examples" : {
                 "0" : {
-                  "value" : "{\r\n      \"name\": \"Movies\",\r\n      \"discription\": \"List of favorite movies\",\r\n      \"display_name\": \"My favorite movies\",\r\n      \"id\": 8\r\n    }"
+                  "value" : ""
                 }
               }
             }
           }
         },
         "responses" : {
-          "201" : {
-            "description" : "Auto generated using Swagger Inspector",
+          "200" : {
+            "description" : "Product successfully updated",
+            "content" : {
+              "application/json; charset=utf-8" : {
+                "schema" : {
+                  "type" : "string"
+                },
+                "examples" : { }
+              }
+            }
+          }
+        },
+        "servers" : [ {
+          "url" : "http://localhost:3000"
+        } ]
+      },
+      "delete" : {
+        "description" : "Delete product by id",
+        "responses" : {
+          "200" : {
+            "description" : "Product successfully deleted",
             "content" : {
               "application/json; charset=utf-8" : {
                 "schema" : {
@@ -262,82 +288,5 @@
       } ]
     }
   },
-  "components" : {
-    "schemas" : {
-      "body" : {
-        "type" : "object",
-        "properties" : {
-          "discription" : {
-            "type" : "string"
-          },
-          "name" : {
-            "type" : "string"
-          },
-          "id" : {
-            "type" : "integer"
-          },
-          "display_name" : {
-            "type" : "string"
-          }
-        }
-      },
-      "body_1" : {
-        "type" : "object",
-        "properties" : {
-          "display name" : {
-            "type" : "string"
-          },
-          "name" : {
-            "type" : "string"
-          },
-          "description" : {
-            "type" : "string"
-          },
-          "id" : {
-            "type" : "integer"
-          },
-          "category" : {
-            "type" : "string"
-          }
-        }
-      },
-      "body_2" : {
-        "type" : "object",
-        "properties" : {
-          "display name" : {
-            "type" : "string"
-          },
-          "name" : {
-            "type" : "string"
-          },
-          "description" : {
-            "type" : "string"
-          },
-          "id" : {
-            "type" : "integer"
-          },
-          "category" : {
-            "type" : "string"
-          }
-        }
-      },
-      "body_3" : {
-        "type" : "object",
-        "properties" : {
-          "discription" : {
-            "type" : "string"
-          },
-          "name" : {
-            "type" : "string"
-          },
-          "id" : {
-            "type" : "integer"
-          },
-          "display_name" : {
-            "type" : "string"
-          }
-        }
-      }
-    }
-  }
+  "swagger": "2.0"
 }
